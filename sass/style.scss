@@ -143,6 +143,58 @@ $trans50: translate(-50%,
     background-color: #fff;
 }
 
+// ! Line Arc
+.Timeline_Year_line_arc {
+    @extend .Timeline_Year_classic;
+    margin: 0;
+    font-size: 26px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.Timeline_Title_line_arc {
+    @extend .Timeline_Title_classic;
+    transform: translate(0, -50%);
+    margin: 0px 10px;
+}
+
+.Timeline_Content_line_arc {
+    @extend .Timeline_Content_classic;
+}
+
+.Timeline_Dot_line_arc {
+    @extend .Timeline_Dot_inline;
+    background-color: #fff;
+    width: 15px;
+    height: 15px;
+}
+
+// !  Arc
+.Timeline_Year_arc {
+    @extend .Timeline_Year_classic;
+    margin: 0;
+    font-size: 26px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.Timeline_Title_arc {
+    @extend .Timeline_Title_classic;
+    transform: translate(0, -50%);
+    margin: 0px 10px;
+}
+
+.Timeline_Content_arc {
+    @extend .Timeline_Content_classic;
+    transform: translateY(-50%)
+}
+
+.Timeline_Dot_arc {
+    @extend .Timeline_Dot_inline;
+    width: 8px;
+    height: 8px;
+}
+
 @keyframes glowCircle {
     from {
         width: 8px;

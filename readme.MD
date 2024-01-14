@@ -14,6 +14,9 @@ TimelineTS is a TypeScript library designed to simplify the creation and managem
   - [Timeline - inline_classic](#timeline-inline-classic)
   - [Timeline - arrow](#timeline-arrow)
   - [Timeline - arrow_reverse](#timeline-arrow-reverse)
+  - [Timeline - line_arc](#timeline-line-arc)
+  - [Timeline - arc](#timeline-arc)
+  - [Timeline - arc_dot](#timeline-arc-dot)
 
 ## Usage
 
@@ -111,6 +114,16 @@ const option={
 }
 ```
 ![](https://my-app.alwaysdata.net/timeline/img/arrow_reverse.png)
+
+### timeline line arc
+```JavaScript
+const option={
+    //...
+    timeline="line_arc";
+    //...
+}
+```
+![](https://github.com/shoaibn98/TimeLine/blob/main/Timeline/img/arrow_reverse.png)
 
 
 - ## New Style coming soon

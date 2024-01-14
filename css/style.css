@@ -14,7 +14,7 @@
   height: auto;
 }
 
-.Timeline_Year_classic, .Timeline_Year_inline_circle, .Timeline_Year_inline_classic, .Timeline_Year_inline {
+.Timeline_Year_classic, .Timeline_Year_arc, .Timeline_Year_line_arc, .Timeline_Year_inline_circle, .Timeline_Year_inline_classic, .Timeline_Year_inline {
   position: absolute;
   display: block;
   text-align: left;
@@ -24,7 +24,7 @@
   font-weight: 600;
 }
 
-.Timeline_Title_classic, .Timeline_Title_inline_circle, .Timeline_Title_inline_classic, .Timeline_Title_inline {
+.Timeline_Title_classic, .Timeline_Title_arc, .Timeline_Title_line_arc, .Timeline_Title_inline_circle, .Timeline_Title_inline_classic, .Timeline_Title_inline {
   position: absolute;
   display: block;
   text-align: left;
@@ -33,7 +33,7 @@
   font-weight: 600;
 }
 
-.Timeline_Content_classic, .Timeline_Content_inline_circle, .Timeline_Content_inline_classic, .Timeline_Content_inline {
+.Timeline_Content_classic, .Timeline_Content_arc, .Timeline_Content_line_arc, .Timeline_Content_inline_circle, .Timeline_Content_inline_classic, .Timeline_Content_inline {
   position: absolute;
   display: block;
   text-align: left;
@@ -58,7 +58,7 @@
   margin: 0px 10px;
 }
 
-.Timeline_Dot_inline, .Timeline_Dot_inline_circle, .Timeline_Dot_classic {
+.Timeline_Dot_inline, .Timeline_Dot_arc, .Timeline_Dot_line_arc, .Timeline_Dot_inline_circle, .Timeline_Dot_classic {
   position: absolute;
   display: block;
   text-align: left;
@@ -123,6 +123,45 @@
 
 .Timeline_Dot_inline_circle {
   background-color: #fff;
+}
+
+.Timeline_Year_line_arc {
+  margin: 0;
+  font-size: 26px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.Timeline_Title_line_arc {
+  transform: translate(0, -50%);
+  margin: 0px 10px;
+}
+
+.Timeline_Dot_line_arc {
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+}
+
+.Timeline_Year_arc {
+  margin: 0;
+  font-size: 26px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.Timeline_Title_arc {
+  transform: translate(0, -50%);
+  margin: 0px 10px;
+}
+
+.Timeline_Content_arc {
+  transform: translateY(-50%);
+}
+
+.Timeline_Dot_arc {
+  width: 8px;
+  height: 8px;
 }
 
 @keyframes glowCircle {

@@ -97,12 +97,216 @@ class Timeline extends TimelineBase{
             case "arrow_reverse":
                 this.mode_Arrow(this.width,this.offset,true);
                 break;
+            case "line_arc":
+                this.mode_Line_Arc(this.width,this.offset);
+                break;
+            case "arc":
+                this.mode_Arc(this.width,this.offset,false);
+                break;
+            case "arc_dot":
+                this.mode_Arc(this.width,this.offset,true);
+                break;
         
             default:
                 this.mode_Classic(this.width,this.offset);
                 break;
         }
         
+    }
+    private mode_Arc(width:number,offset:number,withDot : boolean){
+        for (let i = 0; i < this.allElements.length; i++) {
+            var test : boolean = this.leftOrRight(i);
+
+            this.allElements[i][0].className="Timeline_Year_arc";
+            this.allElements[i][0].style.width=`${100}px`;
+            this.allElements[i][0].style.top=`${((i)*offset+offset/2)}px`;
+            this.allElements[i][0].style.color=this.colorPack[i];
+            this.allElements[i][0].style.fontSize="28px";
+
+            this.allElements[i][1].className ="Timeline_Title_arc" ;
+            this.allElements[i][1].style.width=`${(width/2)-20}px`;
+            this.allElements[i][1].style.top=`${((i)*offset + offset/5 ) }px`;
+            this.allElements[i][1].style.color=this.colorPack[i];
+
+            this.allElements[i][2].className ="Timeline_Content_arc" ;
+            this.allElements[i][2].style.width=`${(width/2)-20}px`;
+            this.allElements[i][2].style.top=`${((i)*offset+offset/2)}px`;
+            
+            this.allElements[i][3].className = "Timeline_Dot_arc";
+            this.allElements[i][3].style.backgroundColor=`${this.colorPack[i]} `;
+            this.allElements[i][3].style.top=`${((i)*offset)}px`;
+            if (withDot) {
+                if (i!=0) {
+                    this.allElements[i][3].style.backgroundColor=`#fff `;
+                    this.allElements[i][3].style.border=` 4px solid ${this.colorPack[i]} `;
+                    this.allElements[i][3].style.width=` 4px `;
+                    this.allElements[i][3].style.height=` 4px`;
+                }
+                
+            }
+
+            if (!test) {
+                this.allElements[i][0].style.left= `65%`;
+
+                this.allElements[i][1].style.right= `60%`;
+                this.allElements[i][1].style.textAlign="right";
+
+                this.allElements[i][2].style.right= `60%`;
+                
+                this.allElements[i][2].style.textAlign="right";
+            }else{
+                this.allElements[i][0].style.right= "65%" ;
+
+                this.allElements[i][1].style.left= "60%" ;
+                this.allElements[i][1].style.textAlign="left";
+
+                this.allElements[i][2].style.left= "60%" ;
+                this.allElements[i][2].style.textAlign="left";
+            }
+        }
+
+        var dotEnd : HTMLSpanElement = document.createElement("span");
+        dotEnd.className = "Timeline_Dot_arc";
+        dotEnd.style.backgroundColor=this.colorPack[this.dotLocations.length-3];
+        dotEnd.style.top=`${this.dotLocations[this.dotLocations.length-2]}px`;
+
+        var svg: SVGSVGElement | HTMLElement = document.createElementNS("http://www.w3.org/2000/svg","svg");
+        svg.setAttribute("width",`${this.option.width}`) ;
+        svg.setAttribute("height",`${this.dotLocations[this.dotLocations.length-1]}`) ;
+
+        for (let i = 1; i < this.dotLocations.length-1; i++) {
+            var test=this.leftOrRight(i);
+            var path: SVGPathElement | HTMLElement = document.createElementNS("http://www.w3.org/2000/svg","path");
+            var width:number = this.option.width;
+            if (!test) {
+                path.setAttribute("d",`M${width/2} ${this.dotLocations[i-1]} a ${offset/2} ${offset/2} 0 1 0 0  ${offset}  `);
+            }else{
+                path.setAttribute("d",`M${width/2} ${this.dotLocations[i-1]} a ${offset/2} ${offset/2} 0 0 1 0  ${offset}  `);
+            }
+           
+            path.setAttribute( "stroke", this.colorPack[i-1] );
+            path.setAttribute("stroke-width","4");
+            path.setAttribute("stroke-linecap","round");
+            path.setAttribute("fill","none");
+            svg.appendChild(path);
+        }
+        
+        this.mainElement.appendChild(dotEnd);
+        this.mainElement.appendChild(svg);
+    }
+    private mode_Line_Arc(width:number,offset:number){
+        for (let i = 0; i < this.allElements.length; i++) {
+            var test : boolean = this.leftOrRight(i);
+
+            this.allElements[i][0].className="Timeline_Year_line_arc";
+            this.allElements[i][0].style.width=`${100}px`;
+            this.allElements[i][0].style.top=`${((i)*offset+offset/2-offset/10)}px`;
+            this.allElements[i][0].style.color=this.colorPack[i];
+            this.allElements[i][0].style.fontSize="28px";
+
+            this.allElements[i][1].className ="Timeline_Title_line_arc" ;
+            this.allElements[i][1].style.width=`${(width/2)-20}px`;
+            this.allElements[i][1].style.top=`${((i)*offset + offset/2)+offset/10 }px`;
+            this.allElements[i][1].style.color=this.colorPack[i];
+
+            this.allElements[i][2].className ="Timeline_Content_line_arc" ;
+            this.allElements[i][2].style.width=`${(width/2)-20}px`;
+            this.allElements[i][2].style.top=`${((i)*offset+offset/2+offset/10)}px`;
+            
+            this.allElements[i][3].className = "Timeline_Dot_line_arc";
+            this.allElements[i][3].style.border=` 5px solid ${this.colorPack[i]} `;
+            this.allElements[i][3].style.top=`${((i)*offset+offset/2)}px`;
+
+            if (!test) {
+                this.allElements[i][0].style.left= `60%`;
+
+                this.allElements[i][1].style.left= `60%`;
+
+                this.allElements[i][2].style.left= `60%`;
+            }else{
+                this.allElements[i][0].style.right= "60%" ;
+
+                this.allElements[i][1].style.right= "60%" ;
+                this.allElements[i][1].style.textAlign="right";
+                this.allElements[i][1].style.marginRight="10px";
+
+                this.allElements[i][2].style.right= "60%" ;
+                this.allElements[i][2].style.textAlign="right";
+                this.allElements[i][2].style.marginRight="10px";
+            }
+        }
+        var dot : HTMLSpanElement = document.createElement("span");
+        dot.className = "Timeline_Dot_classic";
+        dot.style.backgroundColor=this.colorPack[0];
+        dot.style.top=`${0}px`;
+
+        this.mainElement.appendChild(dot);
+        var svg: SVGSVGElement | HTMLElement = document.createElementNS("http://www.w3.org/2000/svg","svg");
+        //  svg.className="Timeline_SVG";
+        svg.setAttribute("width",`${this.option.width}`) ;
+        svg.setAttribute("height",`${this.dotLocations[this.dotLocations.length-1]}`) ;
+
+        for (let i = 1; i < this.dotLocations.length; i++) {
+            var test : boolean = this.leftOrRight(i);
+
+            var path: SVGPathElement | HTMLElement = document.createElementNS("http://www.w3.org/2000/svg","path");
+            var width:number = this.option.width;
+
+            var dotEndLine : HTMLSpanElement = document.createElement("span");
+            
+            dotEndLine.className = "Timeline_Dot_classic";
+            dotEndLine.style.backgroundColor=this.colorPack[i-1];
+            dotEndLine.style.top=`${this.dotLocations[i]-offset/2}px`;
+            
+            if (i!=this.dotLocations.length-1) {
+                if (!test) {
+                dotEndLine.style.left=`${20}px`;
+                }else{
+                    dotEndLine.style.left=`${width-20}px`;
+                }
+            }
+            if (i!=1 && i!= this.dotLocations.length) {
+                var dotStartLine : HTMLSpanElement = document.createElement("span");
+                dotStartLine.className = "Timeline_Dot_classic";
+                dotStartLine.style.backgroundColor=this.colorPack[i-1];
+                dotStartLine.style.top=`${this.dotLocations[i-1]-offset/2}px`;
+
+                if (!test) {
+                    dotStartLine.style.left=`${width/2-20}px`;
+                }else{
+                    dotStartLine.style.left=`${width/2+20}px`;
+                }
+                this.mainElement.appendChild(dotStartLine);
+            }
+            
+            if (i==1) {
+                path.setAttribute("d",`M${width/2} ${this.dotLocations[i-1]} l 0 ${offset/2-20}  a 20 20 0 0 1 20 20 l ${width/2-40} 0  `);
+            }else if (i==this.dotLocations.length-1) {
+                if (!test) {
+                    path.setAttribute("d",`M${width/2-20} ${this.dotLocations[i-1]-offset/2} a 20 20 1 0 0 20 20 l 0 ${offset-20}  `);
+          
+               }else{
+                   path.setAttribute("d",`M${width/2+20} ${this.dotLocations[i-1]-offset/2} a 20 20 0 0 1 -20 20 l 0 ${offset-20}`);
+               }
+                
+            } else {
+                if (!test) {
+                     path.setAttribute("d",`M${width/2-20} ${this.dotLocations[i-1]-offset/2} a 20 20 1 0 0 20 20 l 0 ${offset-40} a 20 20 1 0 0 -20 20 l -${width/2-40} 0 `);
+           
+                }else{
+                    path.setAttribute("d",`M${width/2+20} ${this.dotLocations[i-1]-offset/2} a 20 20 0 0 1 -20 20 l 0 ${offset-40} a 20 20 0 0 1 20 20 l ${width/2-40} 0 `);
+                }
+            }
+            path.setAttribute( "stroke", this.colorPack[i-1] );
+            path.setAttribute("stroke-width","4");
+            path.setAttribute("stroke-linecap","round");
+            path.setAttribute("fill","none");
+
+            this.mainElement.appendChild(dotEndLine);
+            svg.appendChild(path);
+        }
+        this.mainElement.appendChild(svg);
+
     }
     private mode_Arrow(width:number, offset : number,reverse:boolean){
         this.mainElement.style.height=`${((this.option.data.length)*(offset) )}px`;
