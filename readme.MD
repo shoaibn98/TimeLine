@@ -32,11 +32,17 @@ To integrate this timeline library into your project, follow these simple steps:
    <script src="https://cdn.jsdelivr.net/gh/shoaibn98/Timeline/Timeline.min.js"></script>
    ```
 2. **Initialize the Timeline:** 
-
+    make an empty `div` tag with `Timeline_Timeline` class name and define some `id` for this Elements. 
+    You have to give this `id` as `targetId` to your data Option.
     In your JavaScript file, create an instance of the timeline and customize it according to your needs.
+    ```html
+        <div class="Timeline_Timeline" id="myTimeline" >
+        </div>
+    ```
     ```JavaScript
+     
     const option={
-        targetId: "myTimeline",
+            targetId: "myTimeline", // *required : ID of target div elements
             width: 400, // *required : to set Total width of timeline
             offset: 150, // *required : to set distance between each Event 
             timeline: "arrow_reverse", // *required : style of Timeline
