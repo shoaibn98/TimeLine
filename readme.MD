@@ -63,7 +63,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/classic.png)
+![](/img/classic.png)
 
 ### timeline inline
 ```JavaScript
@@ -73,7 +73,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/inline.png)
+![](/img/inline.png)
 
 ### timeline inline circle
 ```JavaScript
@@ -83,7 +83,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/inline_circle.png)
+![](/img/inline_circle.png)
 
 ### timeline inline classic
 ```JavaScript
@@ -93,7 +93,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/inline_classic.png)
+![](/img/inline_classic.png)
 
 ### timeline arrow
 ```JavaScript
@@ -103,7 +103,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/arrow.png)
+![](/img/arrow.png)
 
 ### timeline arrow reverse
 ```JavaScript
@@ -113,7 +113,7 @@ const option={
     //...
 }
 ```
-![](https://my-app.alwaysdata.net/timeline/img/arrow_reverse.png)
+![](/img/arrow_reverse.png)
 
 ### timeline line arc
 ```JavaScript
@@ -123,7 +123,19 @@ const option={
     //...
 }
 ```
-![](https://github.com/shoaibn98/TimeLine/blob/main/Timeline/img/arrow_reverse.png)
+![](/img/line_arc.png)
+
+### timeline arc
+```JavaScript
+const option={
+    //...
+    timeline="arc";
+    // OR
+    timeline="arc_dot";
+    //...
+}
+```
+![](/img/arc.png)
 
 
 - ## New Style coming soon
