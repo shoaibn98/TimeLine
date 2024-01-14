@@ -113,6 +113,6 @@ const option={
 ![](https://my-app.alwaysdata.net/timeline/img/arrow_reverse.png)
 
 
-- ## New Preloader coming soon
+- ## New Style coming soon
 
 made with ♥  by  [Shoaib Norouzi](https://shoaibnorouzi.alwaysdata.net)
