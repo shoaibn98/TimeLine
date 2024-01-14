@@ -21,7 +21,7 @@ To integrate this timeline library into your project, follow these simple steps:
 
 1. **Include the Library Files:**
 
-   Add the library's JavaScript and CSS files to your project. You can either download them from the [releases page](link-to-releases) or include them via a package manager.
+   Add the library's JavaScript and CSS files to your project. 
 
    ```html
    <!-- Add this to the <head> of your HTML file -->
